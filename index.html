@@ -1,235 +1,214 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>Spin Pete Burns right round, like a record baby</title>
-<meta name="description" content="Spin Pete Burns right round, like a record baby" />
-<meta name="keywords" content="Pete Burns, Spinning, Dead or Alive, You spin me right round" />
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <title>Spin Pete Burns right round, like a record baby</title>
+    <meta name="description" content="Spin Pete Burns right round, like a record baby"/>
+    <meta name="keywords" content="Pete Burns, Spinning, Dead or Alive, You spin me right round"/>
 
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $.ajax({
+                url: "spinme.mp3",
+                success: function () {
+                    doAPete();
+                }
+            });
+        });
 
-<script type="text/javascript">
+        function doAPete() {
+            $("#lips").show();
 
+            $("#lips").hover(function () {
+                $("#sound").get(0).play();
 
-	$(document).ready(function () {
-			
-		
-		    $.ajax({
-        url: "spinme.mp3",
-        success: function() {
-	
-			doAPete();
-				
+                $(this).addClass("rotate");
+
+                $("#speech").fadeOut();
+
+                $("#background").addClass("rotate-other-way");
+
+                setTimeout(function () {
+                    $("#left-eye").addClass("rotate-left-eye");
+                    $("#right-eye").addClass("rotate-right-eye");
+                }, 15000);
+
+                setTimeout(function () {
+                    $("#pete").addClass("rotate-pete");
+                }, 22500);
+            });
         }
-    });
-	
-	
-	
+    </script>
 
-	});
-	
-	
-	function doAPete() {
-	
-		
-	            $("#lips").show();
+    <style type="text/css">
+        body {
+            background-color: #fff;
+            position: relative;
+        }
 
-		$("#lips").hover(function () {
-			$("#sound").get(0).play();
-			
-			$(this).addClass("rotate");
-			
-			$("#speech").fadeOut();
-			
-			$("#background").addClass("rotate-other-way");
-			
-			setTimeout(function () {
-				$("#left-eye").addClass("rotate-left-eye");
-				$("#right-eye").addClass("rotate-right-eye");
-			}, 15000);
-			
-			setTimeout(function() {
-				$("#pete").addClass("rotate-pete");
-			}, 22500);
-			
-		});
-	
-		
-	}
-</script>
+        #pete {
+            background-image: url(picture.gif);
+            height: 773px;
+            width: 586px;
 
-<style>
+        }
 
-body {
-	background-color:#fff;
-	position:relative;
-}
+        .rotate-pete {
+            -webkit-transform: rotate(20000deg);
+            -moz-transform: rotate(20000 eg);
+            -o-transform: rotate(20000deg);
+            -webkit-transition-duration: 90s;
+            -moz-transition-duration: 90s;
+            -o-transition-duration: 90s;
+            transition-duration: 90s;
+        }
 
-#pete {
-	background-image:url(picture.gif);
-	height:773px;
-	width:586px;
-
-}
-
-.rotate-pete {
-	-webkit-transform:rotate(20000deg);
-    -moz-transform:rotate(20000eg); 
-    -o-transform:rotate(20000deg);
-   -webkit-transition-duration: 90s;
-    -moz-transition-duration: 90s;
-    -o-transition-duration: 90s;
-    transition-duration: 90s;
-}
-
-#background {
-    -webkit-transition-property: -webkit-transform;
-    -moz-transition-property: -moz-transform;
-    -o-transition-property: -o-transform;
-    transition-property: transform;
-	position:absolute;
-	z-index:-1;
-	width:100%;
-	height: auto;
-	top:-300px;
-}
+        #background {
+            -webkit-transition-property: -webkit-transform;
+            -moz-transition-property: -moz-transform;
+            -o-transition-property: -o-transform;
+            transition-property: transform;
+            position: absolute;
+            z-index: -1;
+            width: 100%;
+            height: auto;
+            top: -300px;
+        }
 
 
-#lips {
-	position:absolute;
-	top: 430px;
-	left: 234px;
-    -webkit-transition-property: -webkit-transform;
-    -moz-transition-property: -moz-transform;
-    -o-transition-property: -o-transform;
-    transition-property: transform;
-     
-    overflow:hidden;
-	display:none;
-	
-}
+        #lips {
+            position: absolute;
+            top: 430px;
+            left: 234px;
+            -webkit-transition-property: -webkit-transform;
+            -moz-transition-property: -moz-transform;
+            -o-transition-property: -o-transform;
+            transition-property: transform;
 
-.rotate {
-	-webkit-transform:rotate(40000deg);
-    -moz-transform:rotate(40000eg); 
-    -o-transform:rotate(40000deg);
-   -webkit-transition-duration: 90s;
-    -moz-transition-duration: 90s;
-    -o-transition-duration: 90s;
-    transition-duration: 90s;
-}
+            overflow: hidden;
+            display: none;
 
-.rotate-other-way { 
-	-webkit-transform:rotate(-7000deg);
-    -moz-transform:rotate(-7000eg); 
-    -o-transform:rotate(-7000deg);
-   -webkit-transition-duration: 90s;
-    -moz-transition-duration: 90s;
-    -o-transition-duration: 90s;
-    transition-duration: 90s;
+        }
 
-}
+        .rotate {
+            -webkit-transform: rotate(40000deg);
+            -moz-transform: rotate(40000 eg);
+            -o-transform: rotate(40000deg);
+            -webkit-transition-duration: 90s;
+            -moz-transition-duration: 90s;
+            -o-transition-duration: 90s;
+            transition-duration: 90s;
+        }
 
-#pete {
-	margin:0 auto;
-	width:600px;
-	position:relative;
-}
+        .rotate-other-way {
+            -webkit-transform: rotate(-7000deg);
+            -moz-transform: rotate(-7000 eg);
+            -o-transform: rotate(-7000deg);
+            -webkit-transition-duration: 90s;
+            -moz-transition-duration: 90s;
+            -o-transition-duration: 90s;
+            transition-duration: 90s;
 
-#right-eye {
-	position:absolute;
-	top: 270px;
-	right: 195px;
-}
+        }
 
-#left-eye {
-	position:absolute;
-	top: 281px;
-	left: 163px;
-}
+        #pete {
+            margin: 0 auto;
+            width: 600px;
+            position: relative;
+        }
 
-.rotate-left-eye { 
-	-webkit-transform:rotate(-7000deg);
-    -moz-transform:rotate(-7000eg); 
-    -o-transform:rotate(-7000deg);
-   -webkit-transition-duration: 70s;
-    -moz-transition-duration: 70s;
-    -o-transition-duration: 70s;
-    transition-duration: 70s;
-}
+        #right-eye {
+            position: absolute;
+            top: 270px;
+            right: 195px;
+        }
 
-.rotate-right-eye { 
-	-webkit-transform:rotate(7000deg);
-    -moz-transform:rotate(7000eg); 
-    -o-transform:rotate(7000deg);
-   -webkit-transition-duration: 70s;
-    -moz-transition-duration: 70s;
-    -o-transition-duration: 70s;
-    transition-duration: 70s;
-}
+        #left-eye {
+            position: absolute;
+            top: 281px;
+            left: 163px;
+        }
 
-#speech {
-	position:absolute;
-	left:-180px;
-	top:20px;
-}
+        .rotate-left-eye {
+            -webkit-transform: rotate(-7000deg);
+            -moz-transform: rotate(-7000 eg);
+            -o-transform: rotate(-7000deg);
+            -webkit-transition-duration: 70s;
+            -moz-transition-duration: 70s;
+            -o-transition-duration: 70s;
+            transition-duration: 70s;
+        }
 
-.thanks {
-	width:200px;
-	margin-top:50px;
-	margin:0 auto;
-	padding:50px 0 0;
-	text-align:center;
-}
+        .rotate-right-eye {
+            -webkit-transform: rotate(7000deg);
+            -moz-transform: rotate(7000 eg);
+            -o-transform: rotate(7000deg);
+            -webkit-transition-duration: 70s;
+            -moz-transition-duration: 70s;
+            -o-transition-duration: 70s;
+            transition-duration: 70s;
+        }
 
-.thanks a {
-	color:#9C3;
-	text-decoration:none;
-}
+        #speech {
+            position: absolute;
+            left: -180px;
+            top: 20px;
+        }
 
-.thanks a:hover {
-	color:#000;
-}
+        .thanks {
+            width: 200px;
+            margin: 0 auto;
+            padding: 50px 0 0;
+            text-align: center;
+        }
 
-* {
-	margin:0;
-	padding:0;
-}
-</style>
+        .thanks a {
+            color: #9C3;
+            text-decoration: none;
+        }
+
+        .thanks a:hover {
+            color: #000;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+        }
+    </style>
 </head>
 
 <body>
 
 <div id="wrapper">
+    <img src="sunburst.gif" id="background" width="600" alt="" height="600"/>
+    <audio id="sound" src="spinme.mp3"></audio>
 
-<img src="sunburst.gif" id="background" width="600"  alt="" height="600" />
-<audio id="sound" src="spinme.mp3"></audio>
-
-
-<div id="pete">
-
-	<img src="speech.gif" id="speech" />
-	<img src="left-eye.png" id="left-eye" />
-    <img src="right-eye.png" id="right-eye" />
-	<img src="lips.png" id="lips" alt="lips" />
-
-</div>
+    <div id="pete">
+        <img src="speech.gif" id="speech"/>
+        <img src="left-eye.png" id="left-eye"/>
+        <img src="right-eye.png" id="right-eye"/>
+        <img src="lips.png" id="lips" alt="lips"/>
+    </div>
 </div>
 
 <p class="thanks">Made with love @ <a href="http://www.pfmeet.co.uk">PFMeet</a></p>
 
 <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-6348706-17']);
+    _gaq.push(['_trackPageview']);
 
-  var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'UA-6348706-17']);
-  _gaq.push(['_trackPageview']);
-
-  (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();
-
+    (function () {
+        var ga = document.createElement('script');
+        ga.type = 'text/javascript';
+        ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(ga, s);
+    })();
 </script>
+
 </body>
 </html>
